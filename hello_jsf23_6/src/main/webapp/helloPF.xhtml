@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>PrimeFaces Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding-top: 50px;
+        }
+        .btn {
+            margin-top: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</h:head>
+<h:body>
+    <div class="container">
+        <h:form>
+        	<p:growl id="msgs" showDetail="true"/>
+            <p:selectOneMenu value="#{helloPFBean.selectedGender}">
+                <f:selectItems value="#{helloPFBean.genders}" />
+            </p:selectOneMenu>
+            
+            <p:commandButton styleClass="btn" value="Submit" actionListener="#{helloPFBean.submit}" update="display msgs" />
+            
+            <p:outputLabel id="display" styleClass="output" value="Selected gender: #{helloPFBean.selectedGender}" />
+        </h:form>
+    </div>
+</h:body>
+</html>
